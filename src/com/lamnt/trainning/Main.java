@@ -1,6 +1,7 @@
 package com.lamnt.trainning;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Main {
@@ -27,10 +28,14 @@ public class Main {
         bills.add(new Bill(3, "HD3", 800000, "2019-10-10"));
         bills.add(new Bill(4, "HD4", 1200000, "2019-10-21"));
         bills.add(new Bill(5, "HD5", 1000000, "2019-10-18"));
+        bills.add(new Bill(6, "HD6", 1000000, "2019-10-20"));
         BillManager billManager = new BillManager(bills);
         billManager.sortBillAsc();
         System.out.println("Danh sách hóa đơn tăng dần theo money :");
         System.out.println(bills.toString());
+
+        System.out.println("Danh sách ngày :");
+        System.out.println(billManager.getDates().toString());
 
         List<Bill> results = billManager.getBillsByMoney();
         System.out.println("Danh sách hóa đơn có money trên 1000000: ");
@@ -42,12 +47,14 @@ public class Main {
         System.out.println("List của list hóa đơn theo ngày: ");
         System.out.println(billManager.getListBillByDate().toString());
 
-        String s = "Nguyễn Tùng Lâm";
+        String s = "getLastCharacter";
         System.out.println("Chuỗi: " + s);
-        System.out.println("Số lần kí tự n xuất hiện:" + StringExam.countCharacter(s, 'n'));
-        System.out.println("Kí tự đầu tiên: " + StringExam.getFirstCharacter(s));
-        System.out.println("Kí tự cuối cùng: " + StringExam.getLastCharacter(s));
-        System.out.println("Kí tự thứ 5: " + StringExam.getCharAt(s, 5));
+        s = s.toLowerCase();
+        System.out.println("Số lần kí tự n xuất hiện:" + StringExam.countCharacter(s, 'a'));
+        System.out.println("Lần đầu xuất hiện: " + StringExam.getFirstCharacter(s, 'a'));
+        System.out.println("lần cuối xuất hiện: " + StringExam.getLastCharacter(s, 'a'));
+        System.out.println("Lần thứ 2 xuất hiện kí tự n: " + StringExam.getCharAt(s, 'a', 2));
+        System.out.println("Các chuỗi con của abcdcdbe: " + StringExam.getAllSubString("abcd"));
 
         List<String> strings = new ArrayList<>();
         strings.add("Nguyễn");
@@ -57,5 +64,15 @@ public class Main {
         s = "Nguyễn Tùng Lâm,";
         s = StringExam.replaceString(s, "Lâm", "My");
         System.out.println(s);
+
+        Date date = DateTimeExam.parseDateFromString("2019-07-15 20:15:20");
+        System.out.println(date.toString());
+        System.out.println(DateTimeExam.getFirstDayOfMonth("2019-07-18 20:15:20"));
+        System.out.println(DateTimeExam.getLastDayOfMonth("2019-07-18 20:15:20"));
+        System.out.println(DateTimeExam.getFirstDayOfWeek("2019-07-18 20:15:20"));
+        System.out.println("" + DateTimeExam.getTimestampFromDateV2("2019-07-18 20:15:20"));
+        System.out.println("" + DateTimeExam.getDateWithFormat("2019-07-15 20:15:20", "yyyy-MM-dd HH:mm:ss"));
+        System.out.println("" + DateTimeExam.getDateWithFormat("2019-07-15 20:15:20", "MMM yyyy,dd HH:mm:ss "));
+
     }
 }

@@ -1,9 +1,6 @@
 package com.lamnt.trainning;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class BillManager {
     private List<Bill> bills;
@@ -28,22 +25,15 @@ public class BillManager {
 
     // Lay danh sach ngay cua danh sach Hoa don
 
-    private List<String> getDates(List<Bill> bills) {
-        List<String> dates = new ArrayList<>();
+    public List<String> getDates() {
         if (bills.isEmpty()) {
-            return dates;
+            return null;
         }
-        String date = bills.get(0).getDate();
-        dates.add(date);
-        int length = bills.size();
-        for (int i = 1; i < length; i++) {
-            String sDate = bills.get(i).getDate();
-            if (!sDate.equals(date)) {
-                dates.add(sDate);
-                date = sDate;
-            }
+        Set<String> dates = new HashSet<>();
+        for (int i = 0; i < bills.size(); i++) {
+            dates.add(bills.get(i).getDate());
         }
-        return dates;
+        return new ArrayList<>(dates);
     }
 
     // Lay danh sach hoa don theo tung ngay
@@ -62,7 +52,7 @@ public class BillManager {
 
     public HashMap<String, List<Bill>> getHMBillsByDate() {
         HashMap<String, List<Bill>> results = new HashMap<>();
-        List<String> dates = getDates(bills);
+        List<String> dates = getDates();
         for (String date : dates) {
             results.put(date, getBillsByDate(date));
         }
@@ -72,7 +62,7 @@ public class BillManager {
     // Tra ve List cua List bill theo ngay
     public List<List<Bill>> getListBillByDate() {
         List<List<Bill>> result = new ArrayList<>();
-        List<String> dates = getDates(bills);
+        List<String> dates = getDates();
         for (String date : dates) {
             result.add(getBillsByDate(date));
         }
