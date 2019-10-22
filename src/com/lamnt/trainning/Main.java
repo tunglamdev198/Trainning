@@ -70,6 +70,7 @@ public class Main {
         System.out.println(DateTimeExam.getFirstDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getLastDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getFirstDayOfWeek("2019-07-18 20:15:20"));
+        System.out.println(DateTimeExam.getOneHundredDayAfter("2019-07-18 20:15:20"));
         System.out.println("" + DateTimeExam.getTimestampFromDateV2("2019-07-18 20:15:20"));
         System.out.println("" + DateTimeExam.getDateWithFormat("2019-07-15 20:15:20", "yyyy-MM-dd HH:mm:ss"));
         System.out.println("" + DateTimeExam.getDateWithFormat("2019-07-15 20:15:20", "MMM yyyy,dd HH:mm:ss "));

@@ -43,10 +43,13 @@ public class DateTimeExam {
         return parseStringFromDate(calendar.getTime(), "yyyy/MM/dd");
     }
 
-    public static long getOneHundredDayAfter(String sDate) {
+    public static String getOneHundredDayAfter(String sDate) {
         Date date = parseDateFromString(sDate);
-        long ts = date.getTime();
-        return ts;
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, 100);
+        Date newDate = calendar.getTime();
+        return parseStringFromDate(newDate, "yyyy/MM/dd");
     }
 
     public static long getTimestampFromDate(String sDate) {
