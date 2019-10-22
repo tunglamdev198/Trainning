@@ -65,8 +65,10 @@ public class Main {
         s = StringExam.replaceString(s, "Lâm", "My");
         System.out.println(s);
 
+        System.out.println("Ngày test:");
         Date date = DateTimeExam.parseDateFromString("2019-07-15 20:15:20");
         System.out.println(date.toString());
+        System.out.println();
         System.out.println(DateTimeExam.getFirstDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getLastDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getFirstDayOfWeek("2019-07-18 20:15:20"));
