@@ -76,33 +76,27 @@ public class StringExam {
         return result;
     }
 
-    public static List<String> getAllSubString(String s) {
+    public static HashMap<String, Integer> getAllSubString(String s) {
+        HashMap<String, Integer> result = new HashMap<>();
         int length = s.length();
-        Set<String> result = new HashSet<>();
         String sb = "";
         for (int i = 0; i < length - 1; i++) {
-            result.add("" + s.charAt(0));
             sb += s.charAt(i);
             for (int j = i + 1; j < length; j++) {
-                result.add("" + s.charAt(j));
                 sb += s.charAt(j);
                 if (sb.length() != length) {
-                    result.add(sb);
+                    if (!result.containsKey(sb)) {
+                        result.put(sb, 1);
+                    } else {
+                        int a = result.get(sb);
+                        result.put(sb, a + 1);
+                    }
                 }
             }
             sb = "";
         }
-        return new ArrayList<>(result);
+        return result;
     }
-
-
-//    public static HashMap<String, Integer> countSubString(String s) {
-//        List<String> subs = getAllSubString(s);
-//        int count = 0;
-//        int subsLength = subs.size();
-//        int sLength = s.length();
-//
-//    }
 
     public static String replaceString(String s, String from, String to) {
         return s.replace(from, to);

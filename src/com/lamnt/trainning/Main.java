@@ -54,7 +54,7 @@ public class Main {
         System.out.println("Lần đầu xuất hiện: " + StringExam.getFirstCharacter(s, 'a'));
         System.out.println("lần cuối xuất hiện: " + StringExam.getLastCharacter(s, 'a'));
         System.out.println("Lần thứ 2 xuất hiện kí tự n: " + StringExam.getCharAt(s, 'a', 2));
-        System.out.println("Các chuỗi con của abcdcdbe: " + StringExam.getAllSubString("abcd"));
+        System.out.println("Các chuỗi con của abcdcdbe: \n" + StringExam.getAllSubString("abcdabc"));
 
         List<String> strings = new ArrayList<>();
         strings.add("Nguyễn");
