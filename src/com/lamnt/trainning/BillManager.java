@@ -52,18 +52,14 @@ public class BillManager {
 
     public HashMap<String, List<Bill>> getHMBillsByDate() {
         HashMap<String, List<Bill>> results = new HashMap<>();
-        int size = bills.size();
-        for (int i = 0; i < size; i++) {
-            String date = bills.get(i).getDate();
-            Bill bill = bills.get(i);
-            if (results.get(date) == null) {
+        for (Bill bill : bills) {
+            String date = bill.getDate();
+            if (!results.containsKey(date)) {
                 List<Bill> billList = new ArrayList<>();
                 billList.add(bill);
                 results.put(date, billList);
             } else {
-                List<Bill> list = results.get(date);
-                list.add(bill);
-                results.put(date, list);
+                results.get(date).add(bill);
             }
         }
         return results;

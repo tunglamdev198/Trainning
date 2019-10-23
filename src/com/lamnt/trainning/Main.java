@@ -60,15 +60,19 @@ public class Main {
         strings.add("Nguyễn");
         strings.add("Tùng Lâm");
         strings.add("1998");
+        System.out.println(StringExam.genStringFromList(strings));
 
         s = "Nguyễn Tùng Lâm,";
         s = StringExam.replaceString(s, "Lâm", "My");
         System.out.println(s);
 
+        System.out.println(StringExam.findCharacterMostAppear("aaabcdjsa"));
+
         System.out.println("Ngày test:");
         Date date = DateTimeExam.parseDateFromString("2019-07-15 20:15:20");
         System.out.println(date.toString());
-        System.out.println();
+        DateTimeExam.compareTwoDate("2019-07-15 20:15:20","2019-08-15 20:15:20");
+        DateTimeExam.countTimeFromTwoDate("2019-07-15 20:15:20","2019-09-16 20:15:20");
         System.out.println(DateTimeExam.getFirstDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getLastDayOfMonth("2019-07-18 20:15:20"));
         System.out.println(DateTimeExam.getFirstDayOfWeek("2019-07-18 20:15:20"));

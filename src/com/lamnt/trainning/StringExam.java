@@ -40,21 +40,39 @@ public class StringExam {
     }
 
     public static String genStringFromList(List<String> strings) {
-        int size = strings.size();
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < size; i++) {
-            if (i == size - 1) {
-                sb.append(strings.get(i));
-            } else {
-                sb.append(strings.get(i)).append(",");
-            }
-        }
-        return sb.toString();
+        return String.join(",", strings);
     }
 
     public static List<String> genListFromString(String s) {
         String[] arrResult = s.split(",");
         List<String> result = Arrays.asList(arrResult);
+        return result;
+    }
+
+    public static char findCharacterMostAppear(String s) {
+        HashMap<Character, Integer> filter = new HashMap<>();
+        int length = s.length();
+        for (int i = 0; i < length; i++) {
+            if (!filter.containsKey(s.charAt(i))) {
+                filter.put(s.charAt(i), 1);
+            } else {
+                int a = filter.get(s.charAt(i));
+                filter.put(s.charAt(i), a + 1);
+            }
+        }
+        List<Integer> integers = new ArrayList<>();
+        for (Map.Entry<Character, Integer> map : filter.entrySet()) {
+            integers.add(map.getValue());
+        }
+        char result = 0;
+        int max = Collections.max(integers);
+        System.out.println("" + max);
+        System.out.println(integers.toString());
+        for (Map.Entry<Character, Integer> map : filter.entrySet()) {
+            if (map.getValue() == max) {
+                result = map.getKey();
+            }
+        }
         return result;
     }
 
@@ -76,6 +94,7 @@ public class StringExam {
         }
         return new ArrayList<>(result);
     }
+
 
 //    public static HashMap<String, Integer> countSubString(String s) {
 //        List<String> subs = getAllSubString(s);
